@@ -1,38 +1,67 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'podium49';
+  src: url('fonts/PODIUMSharp49/font.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'podium96';
+  src: url('fonts/PODIUMSharp96/font.woff') format('woff');
+}
+
+body {
+  font-family: sans-serif;
+}
+section {
+  height: 100vh;
+  background: #ccc;
+}
+section h1 {
   text-align: center;
+  font-size: 80px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.intro-text {
+  font-size: 36px;
+  color: white;
+  font-family: podium96;
+  text-align: left;
+  letter-spacing: 1%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero {
+  position: absolute;
+  top: 0;
+  padding: 5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: left;
+  height: 100vh;
+  width: 35vw;
+  z-index: 2;
 }
-
-.App-link {
-  color: #61dafb;
+.div1 {
+  right: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.div2 {
+  flex-direction: column;
+  padding-right: 8rem;
+}
+.div3 {
+  right: 0;
+  padding-left: 10rem;
+}
+.div4 {
+  padding-left: 10rem;
 }
