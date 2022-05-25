@@ -1,8 +1,8 @@
-import React from "react";
-import { gsap } from "gsap";
-import "../App.css";
-import { useRef, useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from 'react';
+import { gsap } from 'gsap';
+import '../App.css';
+import { useRef, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,7 @@ function Home() {
   useEffect(() => {
     const section = sectionRef.current;
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
     canvas.width = 3840;
     canvas.height = 1882;
 
@@ -24,7 +24,7 @@ function Home() {
     const currentFrame = (index) =>
       `./Video-Scroll/MINT_Background_${(index + 1)
         .toString()
-        .padStart(5, "0")}.jpg`;
+        .padStart(5, '0')}.jpg`;
 
     let images = [];
     let airpods = {
@@ -44,27 +44,48 @@ function Home() {
           trigger: section,
           pin: true,
           scrub: 1,
-          end: "+=13000",
+          end: '+=7000',
           markers: true,
         },
       })
-      .to(airpods, 13, {
+      .to(airpods, {
         frame: frameCount - 1,
-        snap: "frame",
-        ease: "none",
+        snap: 'frame',
+        ease: 'none',
+        duration: 10,
       })
-      .from(q(".hl1"), 0.2, { autoAlpha: 0, y: "20px" }, 0.5)
-      .to(q(".hl1"), 1.8, { y: "-30px" }, 0.7)
-      .to(q(".hl1"), 0.2, { autoAlpha: 0, y: "-50px" }, 2.5)
-      .from(q(".hl2"), 0.2, { autoAlpha: 0, y: "20px" }, 3)
-      .to(q(".hl2"), 1.8, { y: "-30px" }, 3.2)
-      .to(q(".hl2"), 0.2, { autoAlpha: 0, y: "-50px" }, 5)
-      .from(q(".hl3"), 0.2, { autoAlpha: 0, y: "20px" }, 5.5)
-      .to(q(".hl3"), 1.8, { y: "-30px" }, 5.7)
-      .to(q(".hl3"), 0.2, { autoAlpha: 0, y: "-50px" }, 7.5)
-      .from(q(".hl4"), 0.2, { autoAlpha: 0, y: "20px" }, 8)
-      .to(q(".hl4"), 1.8, { y: "-30px" }, 8.2)
-      .to(q(".hl4"), 0.2, { autoAlpha: 0, y: "-50px" }, 10);
+      .fromTo(
+        q('.hl1'),
+        { autoAlpha: 0, y: '20px', duration: 0.2 },
+        { autoAlpha: 1, y: '0px' },
+        '<0.5'
+      )
+      .to(q('.hl1'), { y: '-30px', duration: 1.8 }, '<0.2')
+      .to(q('.hl1'), { autoAlpha: 0, y: '-50px', duration: 0.2 }, '<1.8')
+      .fromTo(
+        q('.hl2'),
+        { autoAlpha: 0, y: '20px', duration: 0.2 },
+        { autoAlpha: 1, y: '0px' },
+        '<0.5'
+      )
+      .to(q('.hl2'), { y: '-30px', duration: 1.8 }, '<0.2')
+      .to(q('.hl2'), { autoAlpha: 0, y: '-50px', duration: 0.2 }, '<1.8')
+      .fromTo(
+        q('.hl3'),
+        { autoAlpha: 0, y: '20px', duration: 0.2 },
+        { autoAlpha: 1, y: '0px' },
+        '<0.5'
+      )
+      .to(q('.hl3'), { y: '-30px', duration: 1.8 }, '<0.2')
+      .to(q('.hl3'), { autoAlpha: 0, y: '-50px', duration: 0.2 }, '<1.8')
+      .fromTo(
+        q('.hl4'),
+        { autoAlpha: 0, y: '20px', duration: 0.2 },
+        { autoAlpha: 1, y: '0px' },
+        '<0.5'
+      )
+      .to(q('.hl4'), { y: '-30px', duration: 1.8 }, '<0.2')
+      .to(q('.hl4'), { autoAlpha: 0, y: '-50px', duration: 0.2 }, '<1.8');
 
     images[0].onload = render;
 
@@ -78,7 +99,7 @@ function Home() {
       <section ref={sectionRef}>
         <canvas
           ref={canvasRef}
-          style={{ position: "relative", zIndex: "-1" }}
+          style={{ position: 'relative', zIndex: '-1' }}
         ></canvas>
         <div className="hero div1">
           <h1 className="intro-text hl1">
